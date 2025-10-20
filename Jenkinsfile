@@ -1,11 +1,7 @@
 pipeline {
     agent any   // Runs on any available Jenkins agent (node)
 
-    environment {
-        // Define any environment variables you need
-        APP_NAME = 'my-app'
-        BRANCH = "${env.GIT_BRANCH}"
-    }
+   
 
     stages {
 
