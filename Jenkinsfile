@@ -5,20 +5,13 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                echo "Checking out source code..."
-                checkout scm  // Automatically checks out the repository where Jenkinsfile resides
-            }
-        }
+    
 
         stage('Build') {
             steps {
                 echo "Building the project..."
                 // Example: If Node.js project
-                sh 'npm install'
-                // For Python: sh 'pip install -r requirements.txt'
-                // For Go: sh 'go build ./...'
+                
             }
         }
 
@@ -26,8 +19,7 @@ pipeline {
             steps {
                 echo "Running tests..."
                 // Example test commands
-                sh 'npm test'
-                // or sh 'pytest'
+                
             }
         }
 
@@ -35,7 +27,7 @@ pipeline {
             steps {
                 echo "Packaging application..."
                 // Example: Create Docker image
-                sh 'docker build -t my-app:latest .'
+                
             }
         }
 
@@ -43,7 +35,7 @@ pipeline {
             steps {
                 echo "Deploying application..."
                 // Example: Run Docker container
-                sh 'docker run -d -p 8080:8080 my-app:latest'
+               
             }
         }
     }
