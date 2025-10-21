@@ -16,7 +16,8 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/Ashu-300/go-blockchain.git', 
+                git branch: 'main',
+                    url: 'https://github.com/Ashu-300/go-blockchain.git', 
                     credentialsId: "${GITHUB_REPO_CREDS}"
             }
         }
