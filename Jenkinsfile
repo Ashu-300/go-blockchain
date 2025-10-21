@@ -14,7 +14,13 @@ pipeline {
     }
 
     stages {
-        
+        stage('Checkout') {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/Ashu-300/go-blockchain.git', 
+                    credentialsId: "${GITHUB_REPO_CREDS}"
+            }
+        }
         stage('Build Docker Image') {
             steps {
                 script {
