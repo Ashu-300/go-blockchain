@@ -9,9 +9,17 @@ pipeline {
         DOCKERHUB_CREDENTIALS_ID = "dockerhub-creds"
         // Optional: Kubernetes credentials if used later
         KUBE_CREDENTIAL_ID = "k8s-service-account-creds"
+        GITHUB_REPO_CREDS = 'github-pat-token'
+        
     }
 
     stages {
+        stage('Checkout') {
+            steps {
+                git url: 'https://github.com/Ashu-300/go-blockchain.git', 
+                    credentialsId: "${GITHUB_REPO_CREDS}"
+            }
+        }
         stage('Build Docker Image') {
             steps {
                 script {
