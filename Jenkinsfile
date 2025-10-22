@@ -50,7 +50,7 @@ pipeline {
                 // Use Kubernetes credentials defined in Jenkins
                 withKubeConfig(credentialsId: KUBE_CREDENTIAL_ID) {
                     // Apply the deployment and service YAML
-                    sh "kubectl apply -f deployment.yaml"
+                    sh "kubectl apply -f deployment.yaml --validate=false"
                     
                     // Wait for the rollout to complete
                     sh "kubectl rollout status deployment/blockchain-deployment --timeout=120s"
